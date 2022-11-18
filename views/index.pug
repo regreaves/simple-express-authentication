@@ -1,0 +1,6 @@
+extends layout
+
+include components/auth
+
+block content
+  +auth(isAuthenticated, userInfo)

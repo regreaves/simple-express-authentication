@@ -1,0 +1,14 @@
+include button
+
+mixin auth(isAuthenticated, userInfo)
+  if (userInfo)
+    img(src=userInfo['picture'] referrerpolicy="no-referrer")
+
+    each [key, value] of Object.entries(userInfo)
+      unless (key == 'picture')
+        div= `${key}: ${value}`
+
+  if (isAuthenticated)
+    +button("/logout", "Log out")(class="btn btn-primary btn-block")
+  else
+    +button("/login", "Log in")(class="btn btn-primary btn-block")
